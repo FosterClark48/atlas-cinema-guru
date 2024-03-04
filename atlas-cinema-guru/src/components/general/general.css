@@ -1,0 +1,26 @@
+/* #region INPUT */
+
+.input-group {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.input-wrapper input {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #BB000E;
+  width: 100%;
+}
+
+.input-wrapper input:focus {
+  outline: none;
+  border-bottom-color: #BB000E;
+}
+
+/* #endregion */
