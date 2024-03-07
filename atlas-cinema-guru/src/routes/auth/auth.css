@@ -1,0 +1,11 @@
+@import '../../App.css';
+
+.light-red {
+  background-color: var(--color-light-red) !important;
+}
+
+.dark-red {
+  background-color: var(--color-dark-red) !important;
+}
+
+
