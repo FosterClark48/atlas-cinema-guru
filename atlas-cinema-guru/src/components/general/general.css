@@ -1,3 +1,5 @@
+@import '../../App.css';
+
 /* #region INPUT */
 
 .input-group {
@@ -14,13 +16,13 @@
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   border: none;
-  border-bottom: 2px solid #BB000E;
+  border-bottom: 2px solid var(--color-dark-red);
   width: 100%;
 }
 
 .input-wrapper input:focus {
   outline: none;
-  border-bottom-color: #BB000E;
+  border-bottom-color: var(--color-dark-red);
 }
 
 /* #endregion */
