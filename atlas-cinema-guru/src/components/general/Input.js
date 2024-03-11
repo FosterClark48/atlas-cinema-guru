@@ -10,9 +10,11 @@ function Input({ label, type, className, value, setValue, icon, inputAttributes 
 
   return (
     <div className={`input-group ${className || ''}`}>
+      <div className="label-icon-wrapper">
+      {icon && <FontAwesomeIcon icon={icon} className="icon-default" />}
       {label && <label>{label}</label>}
+      </div>
       <div className="input-wrapper">
-        {icon && <FontAwesomeIcon icon={icon} />}
         <input
           type={type}
           value={value}
