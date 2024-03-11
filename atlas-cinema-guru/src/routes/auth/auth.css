@@ -8,4 +8,44 @@
   background-color: var(--color-dark-red) !important;
 }
 
+.authentication {
+  width: 50%;
+  max-width: 450px;
+}
 
+/* #region LOGIN */
+
+.login, .register {
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+}
+
+.login-button, .register-button {
+  align-self: flex-end;
+}
+
+.login p, .register p {
+  font-size: 19px;
+  align-self: center;
+  color: var(--color-black-text);
+}
+
+/* #endregion */
+
+/* #region AUTH BUTTONS */
+
+.toggle-auth {
+  display: flex;
+  flex-direction: row;
+}
+
+.toggle-auth Button {
+  margin: 0;
+  padding: 3% 10% 3% 10%;
+  width: 50%;
+  font-weight: 800;
+}
+
+/* #endregion */
