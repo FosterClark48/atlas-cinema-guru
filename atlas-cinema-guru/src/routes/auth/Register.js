@@ -4,9 +4,6 @@ import Input from '../../components/general/Input';
 import { faUser, faLock, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const Register = ({ username, password, setUsername, setPassword }) => {
-  const handleLogin = () => {
-    console.log("Logged in");
-  }
 
   return (
     <div className="register">
@@ -21,17 +18,16 @@ const Register = ({ username, password, setUsername, setPassword }) => {
       />
       <Input
         label="Password:"
-        type="text"
+        type="password"
         className="password"
         value={password}
         setValue={setPassword}
         icon={faLock}
       />
       <Button
-        label="Sign Un"
+        label="Sign Up"
         type="submit"
         className="register-button"
-        onClick={handleLogin}
         icon={faPlus}
       />
     </div>
