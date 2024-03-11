@@ -1,7 +1,7 @@
 import './auth.css';
 import Button from '../../components/general/Button';
 import Input from '../../components/general/Input';
-import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
 
 const Login = ({ username, password, setUsername, setPassword }) => {
 
@@ -22,13 +22,13 @@ const Login = ({ username, password, setUsername, setPassword }) => {
         className="password"
         value={password}
         setValue={setPassword}
-        icon={faLock}
+        icon={faKey}
       />
       <Button
         label="Sign In"
         type="submit"
         className="login-button"
-        icon={faLock}
+        icon={faKey}
       />
     </div>
   )
