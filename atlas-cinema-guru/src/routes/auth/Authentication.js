@@ -23,7 +23,7 @@ const Authentication = ({ setIsLoggedIn, setUserUsername }) => {
       if (accessToken) {
         localStorage.setItem('accessToken', accessToken); // Store the token
         setUserUsername(username); // Update username
-        setIsLoggedIn(true);;
+        setIsLoggedIn(true);
       }
     } catch (error) {
       console.error('Authentication error:', error);
