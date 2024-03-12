@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../../models/User')
+const User = require('../../models/User').default
 const { generateToken } = require('../../utils/tokens')
 
 router.post('/', async (req, res) => {
@@ -16,7 +16,13 @@ router.post('/', async (req, res) => {
                 }))
                 .catch(err => res.status(500).send(err))
         })
-        .catch(() => res.status(400).send({ message: 'Invalid username' }))
+        .catch((err) => {
+            if (err.name === 'SequelizeUniqueConstraintError') {
+                return res.status(400).send({ message: 'Username already exists' });
+            }
+            // Handle other specific errors as needed
+            return res.status(400).send({ message: 'Registration failed', error: err.message });
+        })
 })
 
 module.exports = router
