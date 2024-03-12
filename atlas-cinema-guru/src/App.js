@@ -22,7 +22,9 @@ function App() {
         setIsLoggedIn(true);
       })
       .catch(error => {
-        console.log('Authentication error:', error);
+        console.log('Authentication error:', error.response ? error.response.data : error);
+        localStorage.removeItem("accessToken"); // Clear the invalid token
+        setIsLoggedIn(false); // Ensure the user is marked as logged out
       })
     }
   }, []);
