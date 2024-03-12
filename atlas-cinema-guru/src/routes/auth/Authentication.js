@@ -9,6 +9,7 @@ const Authentication = ({ setIsLoggedIn, setUserUsername }) => {
   const [_switch, set_switch] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = async (onSubmit) => {
     onSubmit.preventDefault();
@@ -23,12 +24,17 @@ const Authentication = ({ setIsLoggedIn, setUserUsername }) => {
 
       if (accessToken) {
         localStorage.setItem('accessToken', accessToken); // Store the token
+        console.log(typeof setUserUsername);
         setUserUsername(username); // Update username
         setIsLoggedIn(true);
       }
     } catch (error) {
-      console.error('Authentication error:', error.response ? error.response.data : error);
-    }
+      const errorMessage = error.response && error.response.data && error.response.data.message
+                      ? error.response.data.message
+                      : error.message;
+      setError(errorMessage); // Update the error state with the new message
+      console.error('Authentication error:', errorMessage);
+      }
   };
 
   return (
@@ -62,6 +68,7 @@ const Authentication = ({ setIsLoggedIn, setUserUsername }) => {
           setPassword={setPassword}
         />
       )}
+      {error && <div className="error-message">{error}</div>}
     </form>
   )
 }
