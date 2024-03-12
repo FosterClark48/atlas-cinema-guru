@@ -5,6 +5,7 @@
   flex-direction: row;
   justify-content: space-between;
   background-color: var(--color-black);
+  padding: 0 3% 0 3%;
 }
 
 .header-nav p {
@@ -26,4 +27,8 @@ nav img {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.user-options p {
+  margin-right:1.5rem;
 }
