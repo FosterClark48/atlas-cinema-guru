@@ -9,7 +9,7 @@ function App() {
   const [userUsername, setUserUsername] = useState("");
 
   useEffect(() => {
-    const accessToken = localStorage.getItem("accessToke");
+    const accessToken = localStorage.getItem("accessToken");
 
     if (accessToken) {
       axios.post('http://localhost:8000/api/auth/', {}, {
@@ -18,8 +18,8 @@ function App() {
         }
       })
       .then(response => {
+        setUserUsername(response.data.username);
         setIsLoggedIn(true);
-        setUserUsername(response.data.user.username);
       })
       .catch(error => {
         console.log('Authentication error:', error);
