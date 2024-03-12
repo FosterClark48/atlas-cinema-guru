@@ -1,4 +1,4 @@
-import { Sequelize } from 'sequelize';
+const Sequelize = require('sequelize').Sequelize;
 const sequelize = new Sequelize(
     process.env.DB_SCHEMA || 'postgres',
     process.env.DB_USER || 'postgres',
@@ -14,4 +14,4 @@ const sequelize = new Sequelize(
     }
 );
 
-export default sequelize
+module.exports = sequelize
