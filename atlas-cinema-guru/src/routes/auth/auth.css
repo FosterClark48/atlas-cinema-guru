@@ -13,6 +13,12 @@
   max-width: 450px;
 }
 
+.error-message {
+  color: var(--color-dark-red);
+  margin-top: 10px;
+  text-align: center;
+}
+
 /* #region LOGIN */
 
 .login, .register {
