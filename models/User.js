@@ -1,5 +1,6 @@
+// sourcery skip: use-object-destructuring
 const DataTypes = require("sequelize").DataTypes;
-const sequelize = require('../config/database');
+const sequelize = require('../config/database').default;
 const { hashPassword } = require('../utils/password')
 
 const User = sequelize.define('User', {
