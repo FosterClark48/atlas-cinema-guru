@@ -10,6 +10,7 @@ function App() {
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
+    console.log(accessToken);
 
     if (accessToken) {
       axios.post('http://localhost:8000/api/auth/', {}, {
@@ -23,8 +24,8 @@ function App() {
       })
       .catch(error => {
         console.log('Authentication error:', error.response ? error.response.data : error);
-        localStorage.removeItem("accessToken"); // Clear the invalid token
-        setIsLoggedIn(false); // Ensure the user is marked as logged out
+        // localStorage.removeItem("accessToken");
+        // setIsLoggedIn(false);
       })
     }
   }, []);
@@ -36,7 +37,7 @@ function App() {
         setIsLoggedIn={setIsLoggedIn}
       /> : <Authentication
         setIsLoggedIn={setIsLoggedIn}
-        userUsername={userUsername}
+        setUserUsername={setUserUsername}
       />}
     </div>
   );
