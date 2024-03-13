@@ -18,6 +18,11 @@ function SideBar() {
     navigate(`/${pageName}`);
   };
 
+  // function to open/close sidebar
+  const toggleSidebar = () => {
+    setSmall(!small); // This will toggle between true and false
+  };
+
   useEffect(() => {
     const fetchActivities = async () => {
       try {
@@ -31,17 +36,42 @@ function SideBar() {
     fetchActivities();
   }, []);
 
+  useEffect(() => {
+    // Function to adjust the sidebar's top position based on the header's height
+    const adjustSidebarTop = () => {
+      const header = document.querySelector('.header-nav'); // Select the header element
+      const sidebar = document.querySelector('.sidebar'); // Select the sidebar element
+      if (header && sidebar) {
+        const headerHeight = header.offsetHeight; // Get the height of the header
+        sidebar.style.top = `${headerHeight}px`; // Set the sidebar's top position to match the header's height
+      }
+    };
+
+    adjustSidebarTop(); // Call the function on component mount
+
+    // Optional: If your header might change height dynamically (e.g., due to window resizing), consider adding an event listener
+    window.addEventListener('resize', adjustSidebarTop);
+
+    // Cleanup function to remove the event listener
+    return () => {
+      window.removeEventListener('resize', adjustSidebarTop);
+    };
+  }, []);
+
   return (
-    <nav className="sidebar">
+    <nav className={`sidebar ${small ? '' : 'open'}`} onMouseEnter={toggleSidebar} onMouseLeave={toggleSidebar}>
       <ul className="navigation-menu">
         <li className={`nav-item ${selected === 'home' ? 'selected' : ''}`} onClick={() => setPage('home')}>
-          <FontAwesomeIcon icon={faHome} /> Home
+          <FontAwesomeIcon className="fa-icon" icon={faHome} />
+          {!small && <span>Home</span>}
         </li>
         <li className={`nav-item ${selected === 'favorites' ? 'selected' : ''}`} onClick={() => setPage('favorites')}>
-          <FontAwesomeIcon icon={faStar} /> Favorites
+          <FontAwesomeIcon className="fa-icon" icon={faStar} />
+          {!small && <span>Favorites</span>}
         </li>
         <li className={`nav-item ${selected === 'watchlater' ? 'selected' : ''}`} onClick={() => setPage('watchlater')}>
-          <FontAwesomeIcon icon={faClock} /> Watch Later
+          <FontAwesomeIcon className="fa-icon" icon={faClock} />
+          {!small && <span>Watch Later</span>}
         </li>
       </ul>
       {showActivities && (
