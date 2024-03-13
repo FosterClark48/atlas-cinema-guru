@@ -14,6 +14,12 @@ const Authentication = ({ setIsLoggedIn, setUserUsername }) => {
   const handleSubmit = async (onSubmit) => {
     onSubmit.preventDefault();
 
+    // Basic validation
+    if (!username.trim() || !password.trim()) {
+      setError("Username and password are required.");
+      return; // Stop the function if validation fails
+    }
+
     const endpoint = _switch ? 'http://localhost:8000/api/auth/login' : 'http://localhost:8000/api/auth/register';
     console.log({ username, password });
 
