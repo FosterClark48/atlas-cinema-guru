@@ -1,5 +1,7 @@
 @import '../../App.css';
 
+/* #region HEADER */
+
 .header-nav {
   display: flex;
   flex-direction: row;
@@ -32,3 +34,86 @@ nav img {
 .user-options p {
   margin-right:1.5rem;
 }
+
+/* #endregion */
+
+
+/* #region SIDEBAR */
+
+/* Closed Sidebar */
+.sidebar {
+  width: 50px;
+  height: 100%; /* Full height of the sidebar */
+  background-color: var(--color-dark-red);
+  transition: width 0.5s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  /* z-index: 100; */
+}
+
+.sidebar.open {
+  width: 218px;
+}
+
+/* Navigation menu styles */
+.navigation-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Individual navigation items */
+.nav-item {
+  color: var(--color-white);
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Style for the active navigation item */
+.nav-item.selected {
+  background-color: var(--color-light-red);
+}
+
+/* Text in the navigation items */
+.nav-item span {
+  transition: opacity 0.5s ease, visibility 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* Text when the sidebar is opened */
+.sidebar.open .nav-item span {
+  opacity: 1;
+  visibility: visible;
+  min-width: 80px; /* Adjust this value based on your text length */
+}
+
+/* Icons in the navigation items when sidebar is open */
+.sidebar.open .nav-item .fa-icon {
+  margin-right: 10px;
+}
+
+/* Styles for when the sidebar is opened */
+.sidebar.open .nav-item {
+  justify-content: flex-start;
+}
+
+/* Styles for when the sidebar is closed */
+.sidebar .nav-item {
+  justify-content: center;
+}
+
+/* Latest Activities section */
+.activity-list {
+  background-color: var(--color-dark);
+  overflow-y: auto; /* Allows scrolling */
+  height: calc(100% - 120px); /* Adjust height based on the size of the top nav items */
+  padding: 10px;
+}
+
+/* #endregion */
