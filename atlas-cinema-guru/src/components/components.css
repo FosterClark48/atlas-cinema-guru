@@ -1,3 +1,9 @@
 @import '../App.css';
 
+.activity-red {
+  color: var(--color-light-red);
+}
 
+.activity-italics {
+  font-style: italic;
+}
