@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../navigation/Header';
+import Header from '../../components/navigation/Header';
 import './dashboard.css';
 
 function Dashboard({ userUsername, setIsLoggedIn }) {
