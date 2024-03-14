@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './movies.css';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faClock, faClockCheck, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faClock, faClockFour, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 
 function MovieCard({ movie }) {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -49,7 +49,7 @@ function MovieCard({ movie }) {
     <li className="movie-card">
       <div className="movie-actions">
         <FontAwesomeIcon icon={isFavorite ? faStar : faStarHalfAlt} onClick={() => handleClick('favorite')} />
-        <FontAwesomeIcon icon={isWatchLater ? faClockCheck : faClock} onClick={() => handleClick('watchlater')} />
+        <FontAwesomeIcon icon={isWatchLater ? faClockFour : faClock} onClick={() => handleClick('watchlater')} />
       </div>
       <h3>{movie.title}</h3>
       <p>{movie.synopsis}</p>
