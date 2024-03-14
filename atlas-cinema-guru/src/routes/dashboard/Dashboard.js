@@ -4,11 +4,10 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from '../../components/navigation/Header';
 import SideBar from '../../components/navigation/SideBar';
 // import Favorites from './Favorites';
-// import HomePage from './HomePage';
+import HomePage from './HomePage';
 // import WatchLater from './WatchLater';
 
 // Placeholder components
-const HomePage = () => <div>Home Page</div>;
 const Favorites = () => <div>Favorites</div>;
 const WatchLater = () => <div>Watch Later</div>;
 
