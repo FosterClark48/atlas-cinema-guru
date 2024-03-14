@@ -36,6 +36,7 @@ function HomePage() {
   // useEffect hook to call loadMovies on component mount and on state changes
   useEffect(() => {
     loadMovies(page);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [minYear, maxYear, genres, sort, title, page]); // Add all the states that should trigger a reload
 
   return (
