@@ -21,6 +21,7 @@ function SideBar() {
   // function to open/close sidebar
   const toggleSidebar = () => {
     setSmall(!small); // This will toggle between true and false
+    // setShowActivities(!small);
   };
 
   useEffect(() => {
@@ -81,13 +82,16 @@ function SideBar() {
           {!small && <span>Watch Later</span>}
         </li>
       </ul>
-      {showActivities && activities.length > 0 && (
-        <ul className="activity-list">
-          {activities.map((activity, index) => (
-            <Activity key={index} userUsername={activity.userUsername} title={activity.title} date={activity.date} />
-          ))}
-        </ul>
-      )}
+      <div className="activities-container">
+        <h2 className="activities-title">Latest Activities</h2>
+        {showActivities && activities.length > 0 && (
+          <ul className="activity-list">
+            {activities.map((activity, index) => (
+              <Activity key={index} userUsername={activity.userUsername} title={activity.title} date={activity.date} />
+            ))}
+          </ul>
+        )}
+      </div>
     </nav>
   );
 }
