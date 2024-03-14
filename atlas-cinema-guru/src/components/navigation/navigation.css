@@ -79,7 +79,7 @@ nav img {
 
 /* Text in the navigation items */
 .nav-item span {
-  transition: opacity 0.5s ease, visibility 0.5s;
+  transition: opacity 0.5s ease-in-out;
   opacity: 0;
   visibility: hidden;
   white-space: nowrap;
@@ -109,11 +109,42 @@ nav img {
 }
 
 /* Latest Activities section */
-.activity-list {
-  background-color: var(--color-dark);
-  overflow-y: auto; /* Allows scrolling */
-  height: calc(100% - 120px); /* Adjust height based on the size of the top nav items */
-  padding: 10px;
+.activities-container {
+  background-color: var(--color-dark-gray);
+  margin-top: 10px;
+  overflow-y: auto;
+  max-height: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0.3, 0, 0.5);
+  display: none;
+  margin: 5px;
 }
+
+.activities-title {
+  font-weight: bold;
+  color: var(--color-white);
+  padding: 10px;
+  margin: 0;
+  text-decoration-line: underline;
+  text-decoration-color: white;
+  text-decoration-style: solid;
+  white-space: nowrap;
+}
+
+.sidebar.open .activities-container {
+  display: block;
+}
+
+.activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 10px 10px 10px;
+}
+
+.activity p {
+  margin: 0 0 10px 0;
+  color: var(--color-white);
+}
+
 
 /* #endregion */
