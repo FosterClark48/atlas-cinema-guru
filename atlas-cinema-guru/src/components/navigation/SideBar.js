@@ -26,8 +26,15 @@ function SideBar() {
   useEffect(() => {
     const fetchActivities = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/activity');
+        const accessToken = localStorage.getItem('accessToken'); // Retrieve the stored token
+        const response = await axios.get('http://localhost:8000/api/activity', {
+          headers: {
+            Authorization: `Bearer ${accessToken}` // Use the token in the Authorization header
+          }
+        });
         setActivities(response.data.slice(0, 10));
+        console.log(response.data.slice(0, 10));
+        setShowActivities(true);
       } catch (error) {
         console.error('Failed to fetch activites:', error);
       }
@@ -49,7 +56,7 @@ function SideBar() {
 
     adjustSidebarTop(); // Call the function on component mount
 
-    // Optional: If your header might change height dynamically (e.g., due to window resizing), consider adding an event listener
+    // If my header might change height dynamically (e.g., due to window resizing), consider adding an event listener
     window.addEventListener('resize', adjustSidebarTop);
 
     // Cleanup function to remove the event listener
@@ -74,7 +81,7 @@ function SideBar() {
           {!small && <span>Watch Later</span>}
         </li>
       </ul>
-      {showActivities && (
+      {showActivities && activities.length > 0 && (
         <ul className="activity-list">
           {activities.map((activity, index) => (
             <Activity key={index} userUsername={activity.userUsername} title={activity.title} date={activity.date} />
