@@ -8,10 +8,11 @@
   border-radius: 15px;
   display: inline-block;
   background-color: var(--color-dark-gray);
+  color: var(--color-white);
 }
 
 .genre-tag.selected {
   background-color: var(--color-light-red);
-  color: white;
+  color: var(--color-white);
   border-color: var(--color-light-red);
 }
