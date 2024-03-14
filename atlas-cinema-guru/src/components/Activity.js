@@ -6,6 +6,7 @@ function Activity({ userUsername, title, date }) {
   return (
     <li className="activity">
       <p>
+        <span className="activity-title">Lastest Activities</span>
         <span className="activity-red">{userUsername}</span>
         added
         <span className="activity-red">{title}</span>
