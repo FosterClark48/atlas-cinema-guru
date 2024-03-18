@@ -13,10 +13,14 @@ function HomePage() {
   const [sort, setSort] = useState("");
   const [title, setTitle] = useState("");
   const [page, setPage] = useState(1);
+  const accessToken = localStorage.getItem('accessToken');
 
   const loadMovies = async (page) => {
     try {
       const response = await axios.get('http://localhost:8000/api/titles/advancedsearch', {
+        headers: {
+          Authorization: `Bearer ${accessToken}` // Use the token in the Authorization header
+        },
         params: {
           minYear: minYear,
           maxYear: maxYear,
@@ -27,7 +31,7 @@ function HomePage() {
         }
       });
       // Append the new movies to the existing ones
-      setMovies(prevMovies => [...prevMovies, ...response.data]);
+      setMovies(prevMovies => [...prevMovies, ...response.data.titles]);
     } catch (error) {
       console.error('Error fetching movies:', error);
     }
@@ -50,7 +54,7 @@ function HomePage() {
       />
       <ul className="movie-list">
         {movies.map(movie => (
-          <MovieCard key={movie.imdbID} movie={movie} />
+          <MovieCard key={movie.imdbId} movie={movie} />
         ))}
       </ul>
       <Button label="Load More.." onClick={() => setPage(prevPage => prevPage + 1)} />
